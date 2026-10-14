@@ -30,3 +30,16 @@ Derived portions of Mkurugenzi are subject to the original GPL-2.0-or-later lice
 ## Rollback
 
 The Git history retains earlier prototypes. A prior version can be restored by reverting the relevant commit, without modifying **beauty-store**.
+
+## Cloudflare Workers (GitHub import wizard)
+
+The project also supports the Cloudflare **Workers** wizard (the one showing **Deploy command: `npx wrangler deploy`**):
+
+- Project name: `369-clothing-rack`.
+- Build command: leave blank.
+- Deploy command: `npx wrangler deploy`.
+- Preview command: `npx wrangler preview`.
+- Production branch: `main`.
+
+The `wrangler.toml` points to `public/` for static assets. `public/index.html` is the exact HTML copied from the repository root; the original root `index.html` remains for Cloudflare Pages and direct static hosts. Upon successful Worker deployment Cloudflare provides a free HTTPS `*.workers.dev` address. Pages projects instead use `*.pages.dev`.
+
