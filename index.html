@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0e0f11">
+<meta name="description" content="369 Clothing — contemporary streetwear. Discover the collection on an interactive clothing rail.">
+<title>369 CLOTHING — Wear Your Frequency</title>
+<link rel="stylesheet" href="assets/rack.css">
+<style>
+:root{--bg:#0e0f11;--cream:#eee9df;--quiet:#9e9f9d;--accent:#c4e0c7;--line:rgba(255,255,255,.16)}
+*,*:before,*:after{box-sizing:border-box}
+html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--cream);font-family:"MKR Inter",Inter,system-ui,Arial,sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}button{font:inherit}button,a{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.announcement{min-height:32px;display:flex;align-items:center;justify-content:center;gap:12px;background:var(--accent);color:#1d2720;text-align:center;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:8px 14px}
+.announcement span{opacity:.55}
+.navbar{position:relative;z-index:8;display:flex;align-items:center;justify-content:space-between;max-width:1460px;margin:auto;padding:25px clamp(20px,5vw,74px)}
+.brand{font-weight:800;font-size:22px;letter-spacing:-.075em;white-space:nowrap}.brand b{font-weight:400;font-size:11px;letter-spacing:.16em;margin-left:9px;vertical-align:middle}
+.navlinks{display:flex;align-items:center;gap:clamp(20px,3vw,50px);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}.navlinks a:hover{color:var(--accent)}.navend{font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:.72}
+.hero{max-width:1460px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:32px;padding:50px clamp(20px,5vw,74px) 60px;align-items:end}
+.eyebrow{display:inline-flex;align-items:center;gap:13px;color:var(--accent);font-size:11px;letter-spacing:.21em;text-transform:uppercase;font-weight:600}.eyebrow:before{content:"";height:1px;width:27px;background:var(--accent)}
+h1,h2,h3,p{margin-top:0}h1{font-size:clamp(70px,13.8vw,196px);line-height:.82;font-weight:750;letter-spacing:-.095em;margin:25px 0 22px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-caption{padding:0 5px 4px 0}.hero-caption p{font-size:16px;color:#b6b7b3;line-height:1.75;max-width:290px;margin-bottom:29px}.round-btn{display:inline-flex;align-items:center;justify-content:space-between;gap:30px;background:var(--cream);color:#171a18;border-radius:2px;padding:18px 24px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;min-width:220px;transition:transform .2s,background .2s}.round-btn:hover{background:var(--accent);transform:translateY(-3px)}.round-btn span{font-size:22px;font-weight:400}
+.hero-overline{max-width:1460px;margin:0 auto;padding:0 clamp(20px,5vw,74px) 25px;display:flex;justify-content:space-between;color:#8d908d;font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.rack-section{max-width:1460px;margin:auto;padding:0 clamp(12px,3.8vw,58px)}.rack-section .mkr-shell{border-radius:4px}
+.rack-section .mkr,.rack-section .mkr-detail{--mkr-bg:#e9e6df;--mkr-bg-2:#f4f0e9;--mkr-paper:#faf8f4;--mkr-navy:#283d34;--mkr-navy-ink:#fff}
+.rack-section .mkr-logo{font-family:"MKR Inter",sans-serif;font-style:normal;font-weight:800;font-size:20px;letter-spacing:-.065em}
+.rack-section .mkr-tab[aria-pressed="true"]{background:#283d34}
+.rack-note{display:flex;justify-content:space-between;gap:20px;max-width:1460px;margin:auto;padding:22px clamp(20px,5vw,74px) 74px;color:#949b96;font-size:11px;letter-spacing:.06em}.rack-note b{color:var(--accent);font-weight:600}
+.section{max-width:1460px;margin:auto;padding:35px clamp(20px,5vw,74px) 96px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:32px}.section h2{font-size:clamp(40px,6vw,75px);line-height:1;letter-spacing:-.073em;font-weight:650;margin:15px 0 0}.section-head small{color:#888f88;font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.product{display:block}.product-img{background:#e4e0d8;aspect-ratio:3/4;display:grid;place-items:center;position:relative;overflow:hidden}.product-img img{height:89%;max-width:90%;object-fit:contain;transition:transform .5s cubic-bezier(.2,.8,.2,1)}.product:hover img{transform:scale(1.075) rotate(-2deg)}.product-img:after{content:"369";position:absolute;right:12px;top:10px;font-size:10px;color:#4b5048;font-weight:700;letter-spacing:.2em}.product-meta{padding-top:14px;display:flex;justify-content:space-between;gap:14px;font-size:13px}.product-meta strong{font-weight:600}.product-meta span{color:var(--accent);white-space:nowrap}
+.story{background:#c4dfc4;color:#14221b;min-height:300px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding:80px max(5vw,20px)}.story h2{font-size:clamp(50px,8vw,110px);line-height:.88;letter-spacing:-.09em;margin:0}.story p{max-width:430px;line-height:1.85;margin:0 0 12px}.story .small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:22px}
+footer{max-width:1460px;margin:auto;display:flex;justify-content:space-between;gap:25px;align-items:center;padding:34px clamp(20px,5vw,74px);font-size:11px;color:#9ea49d}footer strong{color:var(--cream);font-size:20px;letter-spacing:-.09em}
+.demo-tag{border:1px solid var(--line);padding:6px 9px;font-size:9px;color:#a5bca9;letter-spacing:.07em;text-transform:uppercase}
+@media(max-width:850px){.hero{grid-template-columns:1fr;gap:0;padding-top:28px}.hero-caption p{max-width:580px}.hero h1{font-size:clamp(70px,16vw,148px)}.hero-overline{padding-top:12px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.story{grid-template-columns:1fr;padding:60px 24px}.navend{display:none}}
+@media(max-width:480px){.navbar{padding:21px 17px}.brand{font-size:20px}.brand b{display:none}.navlinks{gap:13px;font-size:9px}.hero{padding:35px 19px 43px}.hero h1{font-size:clamp(69px,18vw,102px)}.hero-caption p{font-size:14px}.hero-overline{padding:0 18px 18px}.hero-overline span:last-child{display:none}.rack-section{padding:0 8px}.rack-note{padding:21px 18px 55px;display:block}.rack-note span{display:block;margin-bottom:7px}.section{padding:20px 18px 65px}.section-head small{display:none}.grid{gap:12px}.product-meta{font-size:11px}.section h2{font-size:46px}footer{padding:30px 18px;flex-wrap:wrap}.announcement{font-size:9px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.product-img img,.round-btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="announcement"><span>✳</span> 369 CLOTHING / PREVIEW COLLECTION <span>✳</span></div>
+<header class="navbar">
+  <a href="#" class="brand" aria-label="369 Clothing Home">369 <b>CLOTHING</b></a>
+  <nav class="navlinks" aria-label="Main navigation"><a href="#rack">The Rack</a><a href="#collection">Collection</a><a href="#story">Our Story</a></nav>
+  <div class="navend">Independent / Est. 369</div>
+</header>
+<main>
+<section class="hero">
+  <div>
+    <div class="eyebrow">An independent clothing experience</div>
+    <h1>WEAR<br>YOUR<br><em>369.</em></h1>
+  </div>
+  <div class="hero-caption">
+    <p>Different frequency. Same attitude. Discover pieces designed to move with you — one hanger at a time.</p>
+    <a class="round-btn" href="#rack">Explore the rack <span aria-hidden="true">↗</span></a>
+  </div>
+</section>
+<div class="hero-overline"><span>Collection 001 / New perspective</span><span>Scroll to discover ↘</span></div>
+<section id="rack" class="rack-section" aria-label="Interactive clothing rack">
+ <div class="mkr" data-mkr-config='{"title":"369 / The Rack","currency":"$","ticker":["369 CLOTHING","WEAR YOUR FREQUENCY","SELECT A PIECE TO VIEW","COLLECTION 001"]}'></div>
+</section>
+<div class="rack-note"><span><b>INTERACTIVE RACK ↗</b> &nbsp; Tap a garment, inspect it, pick a size, add to preview bag.</span><span>Prototype: illustrative items and placeholder prices / no checkout.</span></div>
+<section id="collection" class="section">
+  <div class="section-head"><div><div class="eyebrow">Curated essentials</div><h2>The collection<span style="color:var(--accent)">.</span></h2></div><small>Selected looks / collection 001</small></div>
+  <div id="product-grid" class="grid" aria-label="Selected clothing pieces"></div>
+</section>
+<section id="story" class="story"><div><p class="small">About the frequency</p><h2>STYLE HAS<br>NO RULES.</h2></div><div><p>369 Clothing is a space for essentials with personality. Our signature shopping experience puts the clothes on a real-feeling, interactive rack — pick your piece and make it yours.</p><p><strong>We're building the next drop.</strong> This is a working prototype; product photos, inventory, real pricing and checkout can be connected later.</p></div></section>
+</main>
+<footer><strong>369 / CLOTHING</strong><div>© 2026 369 Clothing. All rights reserved for brand assets.</div><span class="demo-tag">Preview / no live orders</span></footer>
+<script src="assets/products.js"></script>
+<script src="assets/cart.js"></script>
+<script src="assets/rack.js"></script>
+<script>
+(function(){
+ const grid=document.getElementById('product-grid');
+ const picks=[0,1,4,5,6,8,10,11];
+ const items=window.MKR_FALLBACK_PRODUCTS||[];
+ grid.innerHTML=picks.map((n)=>{
+   const p=items[n];if(!p)return '';
+   const name=p.name.split(' – ');
+   return '<a class="product" href="#rack" aria-label="See '+name[0]+' on the interactive rack"><div class="product-img"><img loading="lazy" src="'+p.image+'" alt="'+p.name+' — illustrative preview"></div><div class="product-meta"><strong>'+name[0]+' / '+(name[1]||'')+'</strong><span>$'+p.price+'</span></div></a>';
+ }).join('');
+})();
+</script>
+</body>
+</html>
