@@ -1,20 +1,32 @@
-# 369 CLOTHING — Interactive clothing rack store prototype
+# 369 Clothing × Mkurugenzi — Cloudflare Pages
 
-A standalone, static site built by customizing the GPL-2.0-or-later Mkurugenzi interactive clothing-rack code. Inspired by the Mkurugenzi implementation: https://github.com/KabuorJnr/mkurugenzi
+Interactive Persian storefront for 369 Clothing, based on the original Mkurugenzi CSS 3D clothing-rack engine.
 
-## Run
-Open index.html directly in a modern browser, or run \`python3 -m http.server 8000\` in this folder and visit http://localhost:8000.
-Deploy the directory as a static website to GitHub Pages, Netlify, Cloudflare Pages, or Vercel. No build command required.
+## Live entry point
 
-## Site features
-- 369 Clothing design and responsive landing page
-- Original interactive 3D-like swing clothing rack and accessories wall, keyboard and touch controls
-- 12 self-generated, original vector illustration products without Mkurugenzi's third-party product photos
-- Catalog in assets/products.js
-- Working sample bag with adjustable quantities, not connected to a payment processor
+- **index.html** is a self-contained HTML/CSS/JS deployment entry point. Open it locally or deploy this repository's root directory to Cloudflare Pages.
+- **assets/** currently contains older prototype assets retained for source history. The current `index.html` does not depend on those files.
+- No npm install or build process is required for this standalone deployment.
 
-## Important — Prototype, not a live shop
-Product names, inventory and USD prices are **illustrative sample placeholders**. No real payments or orders can be placed, and do not collect customer details. Replace products with actual photos and genuine prices before production. To enable real checkout integrate WordPress + WooCommerce through the original GPL plugin and configure your payment gateway, taxes, shipping, privacy policy, and local legal requirements.
+## Cloudflare Pages with GitHub
 
-## Original code and licensing
-The rack and demo bag JavaScript and rack CSS are derived from KabuorJnr/mkurugenzi and remain available under GPL-2.0-or-later per the upstream README. Fonts are under SIL OFL 1.1; license texts are in assets/fonts. The newly created SVG illustrations, site layout, text and 369 Clothing branding are separate original work produced for this prototype. Upstream Mkurugenzi product images, marks and original catalog were intentionally excluded.
+1. In Cloudflare **Workers & Pages**, choose **Create application → Pages → Connect to Git**.
+2. Select **amirastae11/369-clothing-rack**, not **beauty-store**. If the repo is missing, allow it in the Cloudflare Pages GitHub installation permissions.
+3. Use production branch **main**, Framework preset **None**, leave **Build command** empty, set **Build output directory** to **.** (the repository root).
+4. Choose **Save and Deploy**. Cloudflare creates an HTTPS `*.pages.dev` address.
+5. Subsequent commits to **main** will trigger automatic deployments once this Pages project is linked to the repository.
+
+## Important limitations
+
+- Product photos load from the 369 Clothing website via online URLs; these are not yet cached locally.
+- Catalog and prices are a snapshot, not live stock/price synchronization. Verify all items before accepting orders.
+- Shopping bag/checkout is **demo-only**; no live payment gateway or confirmed order processing is configured.
+- Rack motion uses the upstream CSS 3D and JavaScript engine, without migrating to Three.js.
+
+## License and attribution
+
+Derived portions of Mkurugenzi are subject to the original GPL-2.0-or-later licensing. See [LICENSE-THIRD-PARTY.md](LICENSE-THIRD-PARTY.md), the upstream [Mkurugenzi repository](https://github.com/KabuorJnr/mkurugenzi), and the inline upstream attribution within the current entry point. Embedded fonts follow their SIL Open Font License. Product names, images, and 369 branding belong to their respective owners.
+
+## Rollback
+
+The Git history retains earlier prototypes. A prior version can be restored by reverting the relevant commit, without modifying **beauty-store**.
