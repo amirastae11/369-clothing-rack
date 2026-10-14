@@ -1,45 +1,36 @@
-# 369 Clothing × Mkurugenzi — Cloudflare Pages
+# 369 Clothing × Hangline / Mkurugenzi v3
 
-Interactive Persian storefront for 369 Clothing, based on the original Mkurugenzi CSS 3D clothing-rack engine.
+Static interactive Persian streetwear catalog based on the **Mkurugenzi CSS 3D clothing-rack engine**, styled after the owner's Hangline screenshot. License: GPL-2.0-or-later for derived Mkurugenzi code. See [upstream](https://github.com/KabuorJnr/mkurugenzi) and LICENSE-THIRD-PARTY.md.
 
-## Live entry point
+## Deploy to Cloudflare Workers
 
-- **index.html** is a self-contained HTML/CSS/JS deployment entry point. Open it locally or deploy this repository's root directory to Cloudflare Pages.
-- **assets/** currently contains older prototype assets retained for source history. The current `index.html` does not depend on those files.
-- No npm install or build process is required for this standalone deployment.
+The deploy entry is `public/index.html`, identical to `index.html`. Keep the existing `wrangler.toml`:
 
-## Cloudflare Pages with GitHub
+- `name = "369-clothing-rack"`
+- `[assets] directory = "./public"`
+- Build command: empty
+- Deploy command: `npx wrangler deploy`
+- Production branch: `main`
 
-1. In Cloudflare **Workers & Pages**, choose **Create application → Pages → Connect to Git**.
-2. Select **amirastae11/369-clothing-rack**, not **beauty-store**. If the repo is missing, allow it in the Cloudflare Pages GitHub installation permissions.
-3. Use production branch **main**, Framework preset **None**, leave **Build command** empty, set **Build output directory** to **.** (the repository root).
-4. Choose **Save and Deploy**. Cloudflare creates an HTTPS `*.pages.dev` address.
-5. Subsequent commits to **main** will trigger automatic deployments once this Pages project is linked to the repository.
+Live site: https://369-clothing-rack.nayererohalamini.workers.dev/
 
-## Important limitations
+## Current features
 
-- Product photos load from the 369 Clothing website via online URLs; these are not yet cached locally.
-- Catalog and prices are a snapshot, not live stock/price synchronization. Verify all items before accepting orders.
-- Shopping bag/checkout is **demo-only**; no live payment gateway or confirmed order processing is configured.
-- Rack motion uses the upstream CSS 3D and JavaScript engine, without migrating to Three.js.
+- Editorial ivory / forest-green design, responsive grids, 4 interactive clothing rails, product detail modal and size selection.
+- Snapshot catalog of 17 real 369 Clothing items with owner-hosted public product images and TOMAN prices, category filters, lookbook and social links.
+- **Demo selection bag only.** It never asks for shipping address or phone number. Per-item direct links open the real store, where availability, prices, and checkout must be verified.
+- Recognizes Persian color words, enhances keyboard focus, prefers-reduced-motion and tap targets.
+- If WordPress resized media fails, retries original image URL, then shows an explicitly marked schematic fallback; it is **not** a real photo.
+- Schema.org Organization and WebSite metadata without unverified addresses.
 
-## License and attribution
+## Known limitations
 
-Derived portions of Mkurugenzi are subject to the original GPL-2.0-or-later licensing. See [LICENSE-THIRD-PARTY.md](LICENSE-THIRD-PARTY.md), the upstream [Mkurugenzi repository](https://github.com/KabuorJnr/mkurugenzi), and the inline upstream attribution within the current entry point. Embedded fonts follow their SIL Open Font License. Product names, images, and 369 branding belong to their respective owners.
+- Real 369 images are remotely hosted and could not be downloaded or exhaustively verified from the build environment.
+- True photographic side views / transparent garment cut-outs are not available for every item; actual appearance on the 3D rail needs asset-level review.
+- Catalog prices/stock are snapshots, not real-time WooCommerce sync; live payment intentionally disabled.
+- iOS Safari on a real device has not been tested in this environment.
+- Assets directory contains historical prototype files; the production worker serves solely from `public/`.
 
-## Rollback
+## Regression testing
 
-The Git history retains earlier prototypes. A prior version can be restored by reverting the relevant commit, without modifying **beauty-store**.
-
-## Cloudflare Workers (GitHub import wizard)
-
-The project also supports the Cloudflare **Workers** wizard (the one showing **Deploy command: `npx wrangler deploy`**):
-
-- Project name: `369-clothing-rack`.
-- Build command: leave blank.
-- Deploy command: `npx wrangler deploy`.
-- Preview command: `npx wrangler preview`.
-- Production branch: `main`.
-
-The `wrangler.toml` points to `public/` for static assets. `public/index.html` is the exact HTML copied from the repository root; the original root `index.html` remains for Cloudflare Pages and direct static hosts. Upon successful Worker deployment Cloudflare provides a free HTTPS `*.workers.dev` address. Pages projects instead use `*.pages.dev`.
-
+A self-contained local regression script and technical report are included in the downloadable **v3 complete source ZIP** supplied in the ChatGPT project conversation. The test uses Chromium at 320, 390, 768 and 1440 px with synthetic media success and intentionally failing media responses. A test fixture is never part of the published HTML.
