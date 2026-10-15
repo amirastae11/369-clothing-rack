@@ -63,6 +63,13 @@ function start(){
    test.src=url;
  }))).then(()=>{const rack=root.__rack;if(rack)rack.renderRail();});
 }
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);
-else start();
+// Wait until the Mkurugenzi rack finishes its own DOMContentLoaded initialization.
+let booted=false,attempts=0;
+function bootWhenReady(){
+ if(booted)return;
+ if(root&&root.__rack){booted=true;start();return;}
+ if(++attempts<240)requestAnimationFrame(bootWhenReady);
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bootWhenReady,{once:true});
+else requestAnimationFrame(bootWhenReady);
 })();
