@@ -3,7 +3,7 @@
    The existing Mkurugenzi CSS 3D engine and UI remain the fallback. */
 (function(){
 'use strict';
-const keys=['369-01','369-04'];
+const keys=['369-01','369-02','369-04'];
 const base=(window.H369CutoutBase||'/garments/').replace(/\/$/,'')+'/';
 const images=new Map();
 let patched=false;
@@ -24,6 +24,7 @@ function upgrade(){
     originalRail.apply(this,arguments);
     Array.from(this.rackEl.children).forEach((slot,i)=>{
       const p=this.visible&&this.visible[i];
+      slot.classList.add('is-photo-turn');
       slot.classList.toggle('is-photo-3d',!!p&&images.has(p.key));
     });
   };
@@ -54,12 +55,13 @@ function upgrade(){
 }
 function start(){
  if(!root)return;
+ upgrade();
  Promise.all(keys.map(key=>new Promise(resolve=>{
    const url=base+key+'.webp',test=new Image();
    test.onload=()=>{images.set(key,url);resolve(true)};
    test.onerror=()=>resolve(false);
    test.src=url;
- }))).then(()=>upgrade());
+ }))).then(()=>{const rack=root.__rack;if(rack)rack.renderRail();});
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);
 else start();
