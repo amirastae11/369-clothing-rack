@@ -3,7 +3,7 @@
    The existing Mkurugenzi CSS 3D engine and UI remain the fallback. */
 (function(){
 'use strict';
-const keys=['369-01','369-02','369-04'];
+const keys=['369-01','369-02','369-03','369-04','369-05','369-06'];
 const base=(window.H369CutoutBase||'/garments/').replace(/\/$/,'')+'/';
 const images=new Map();
 let patched=false;
