@@ -1,7 +1,7 @@
 /* 369 motion pilot: photo-derived garment cutouts on a real CSS perspective rail.
    No artificial product side photo is presented as authentic. */
-.mkr-slot.is-photo-3d .mkr-face-side { display:none!important; }
-.mkr-slot.is-photo-3d .mkr-face-front {
+.mkr-slot.is-photo-turn .mkr-face-side { display:none!important; }
+.mkr-slot.is-photo-turn .mkr-face-front {
  opacity:1!important;
  transform:translateX(-50%) perspective(1050px) rotateY(-82deg) rotateZ(-2deg)!important;
  transform-origin:50% 9%;
@@ -9,15 +9,15 @@
  transition:transform 1080ms cubic-bezier(.22,.77,.15,1.04), filter 1080ms ease!important;
  filter:drop-shadow(4px 10px 5px rgba(32,38,33,.16));
 }
-.mkr-slot.is-photo-3d.is-active .mkr-face-front {
+.mkr-slot.is-photo-turn.is-active .mkr-face-front {
  transform:translateX(-50%) perspective(1050px) rotateY(0deg) rotateZ(0deg)!important;
  filter:drop-shadow(13px 16px 8px rgba(29,37,31,.23));
 }
-.mkr-slot.is-photo-3d .mkr-garment { transform-style:preserve-3d;filter:none; }
-.mkr-slot.is-photo-3d .mkr-face-front .mkr-swing {
+.mkr-slot.is-photo-turn .mkr-garment { transform-style:preserve-3d;filter:none; }
+.mkr-slot.is-photo-turn .mkr-face-front .mkr-swing {
  display:block;transform-origin:50% 5%;
 }
-.mkr-slot.is-photo-3d.is-active .mkr-face-front .mkr-swing {
+.mkr-slot.is-photo-turn.is-active .mkr-face-front .mkr-swing {
  animation:h369-cloth-settle 1450ms cubic-bezier(.18,.78,.21,1) 180ms both!important;
 }
 .mkr-slot.is-photo-3d .mkr-rack-cutout {
@@ -39,7 +39,7 @@
  100%{transform:rotate(0) skewX(0) scaleX(1);}
 }
 @media(prefers-reduced-motion:reduce) {
- .mkr-slot.is-photo-3d .mkr-face-front {transition:none!important;transform:translateX(-50%) perspective(1050px) rotateY(-67deg)!important;}
- .mkr-slot.is-photo-3d.is-active .mkr-face-front {transform:translateX(-50%) perspective(1050px) rotateY(0deg)!important;}
- .mkr-slot.is-photo-3d.is-active .mkr-swing {animation:none!important;}
+ .mkr-slot.is-photo-turn .mkr-face-front {transition:none!important;transform:translateX(-50%) perspective(1050px) rotateY(-67deg)!important;}
+ .mkr-slot.is-photo-turn.is-active .mkr-face-front {transform:translateX(-50%) perspective(1050px) rotateY(0deg)!important;}
+ .mkr-slot.is-photo-turn.is-active .mkr-swing {animation:none!important;}
 }
