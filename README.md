@@ -34,3 +34,7 @@ Live site: https://369-clothing-rack.nayererohalamini.workers.dev/
 ## Regression testing
 
 A self-contained local regression script and technical report are included in the downloadable **v3 complete source ZIP** supplied in the ChatGPT project conversation. The test uses Chromium at 320, 390, 768 and 1440 px with synthetic media success and intentionally failing media responses. A test fixture is never part of the published HTML.
+
+## v6 catalog clarity and photo diagnostics
+
+See [Persian v6 technical report](docs/V6_MEDIA_AUDIT_FA.md). For a real-browser media audit of all 17 garment photos, open `/media-check.html` on the Cloudflare deployment. The main site retains Mkurugenzi CSS 3D fallback when authenticated animation frames have not been supplied. Prices and availability are not live; real checkout is still disabled.
